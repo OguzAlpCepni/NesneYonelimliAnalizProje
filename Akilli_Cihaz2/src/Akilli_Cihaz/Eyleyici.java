@@ -34,7 +34,7 @@ public class Eyleyici implements Subject{
     public int sogutucuAc(int temp) {
         this.temp = temp;
         notifyObservers();
-        return temperature;
+        return temperature; //aktif sıcaklığı döndürüyor
     }
     public void sogutucuKapa(int temp) {
         this.temp = temp;

@@ -1,6 +1,6 @@
 package Akilli_Cihaz;
 
-import java.sql.Connection;
+
 import java.util.Scanner;
 
 public class Arayuz {
@@ -12,7 +12,7 @@ public class Arayuz {
             return false;
     }
 
-    public static void Islem(MerkeziSistem m) {
+    public static void Islem(MerkeziSistem merkeziSistem) {
 
         Scanner sc = new Scanner(System.in);
         int secim;
@@ -25,13 +25,22 @@ public class Arayuz {
 
             switch (secim) {
                 case 1:
-                    System.out.println("Ortam sıcaklığı: " + m.SicaklikGetir());
+                    System.out.println("Ortam sıcaklığı: " + merkeziSistem.SicaklikGetir());
                     break;
                 case 2:
-                    m.SogutucuAc();
+                    if(merkeziSistem.SicaklikGetir()%2 == 0)
+                        merkeziSistem.SogutucuAc();
+                    else
+                        merkeziSistem.secondSogutucuAc();
+
+
                     break;
                 case 3:
-                    m.SogutucuKapa();
+                    if(merkeziSistem.SicaklikGetir()%2 == 0)
+                        merkeziSistem.SogutucuKapa();
+                    else
+                        merkeziSistem.secondSogutucuKapat();
+
                     break;
 
             }
@@ -47,9 +56,9 @@ public class Arayuz {
         int sayac = 0;
         boolean temp = false;
         while (sayac < 3) {
-            System.out.println("username : ");
+            System.out.print("username : ");
             String user = scan.next();
-            System.out.println("password :");
+            System.out.print("password : ");
             String password = scan.next();
 
             if (kullanicigonder(user,password,userControl)) {

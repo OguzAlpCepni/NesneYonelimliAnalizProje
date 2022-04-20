@@ -8,7 +8,7 @@ public class KullaniciDogrula {
     private static Connection connection;
     private String url = "jdbc:postgresql://localhost:5432/javadb";
     private String username = "postgres";
-    private String password = "12345";
+    private String password = "03Mfdr03.";
 
     private Connection getDbConnection() {
         if (connection != null) return connection;
@@ -28,7 +28,7 @@ public class KullaniciDogrula {
         try {
             PreparedStatement preQuery = getDbConnection().prepareStatement(query);
             preQuery.setString(1, username);
-            preQuery.setString(2    , password);
+            preQuery.setString(2, password);
             ResultSet response = preQuery.executeQuery();
             return response.next();
         } catch (SQLException e) {
